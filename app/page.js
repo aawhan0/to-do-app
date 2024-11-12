@@ -15,10 +15,20 @@ const page = () => {
     setdesc('')
     console.log(mainTask);
     
-  }
+   
+  };
 
 
   let renderTask = <h2> No task available</h2>
+
+  if(mainTask.length>0){
+  renderTask= mainTask.map((t,i) => {
+    return <div className='flex justify-between'>
+        <h5 className="text-2xl font-semibold">{t.title}</h5>
+        <h5 className='text-xl font-semibold'>{t.desc}</h5>
+    </div>
+})
+}
   return (
     <>
     
@@ -49,7 +59,7 @@ const page = () => {
        }}
        />
       
-      <button className='bg-white text-black text-2xl px-4 py-3 m-4 font-bold rounded-lg'> Add task</button>
+      <button className='bg-white text-black text-2xl px-4 py-2 m-4 font-bold border-zinc-800 border-4 rounded-lg'> Add task</button>
 
     </form>
     <hr />
